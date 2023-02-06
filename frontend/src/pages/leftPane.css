@@ -287,3 +287,8 @@ select-selected{
 .ethdropdown{
     align-self: center;
 }
+
+.logo{
+    max-width: 100rem;
+    margin:2rem;
+}

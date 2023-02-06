@@ -15,7 +15,7 @@ const Mint: React.FC<{}> = () => {
         },
     ]
     const mintfunction = async () => {  
-        const contractaddress =  '0xB9D6152acd7b9c282F0a8559906d708EdF677A75'
+		const contractaddress =  '0xB9D6152acd7b9c282F0a8559906d708EdF677A75'
         const abi = [
 			{
 				"anonymous": false,
@@ -174,6 +174,25 @@ const Mint: React.FC<{}> = () => {
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "usr",
+						"type": "address"
+					}
+				],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "uint256",
 						"name": "_wad",
 						"type": "uint256"
@@ -289,10 +308,12 @@ const Mint: React.FC<{}> = () => {
 				"stateMutability": "nonpayable",
 				"type": "function"
 			}
-		]
+		];
         const val = document.getElementById("token") as HTMLInputElement | null
         if (val != null){
             var w = parseFloat(val.value);
+			    // @ts-ignore
+
             const provider = new ethers.providers.Web3Provider(window.ethereum)
             const signer = provider.getSigner()
             const mintcontract = new ethers.Contract(contractaddress, abi,signer)

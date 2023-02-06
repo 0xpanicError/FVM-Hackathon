@@ -14,7 +14,7 @@ const Deposite: React.FC = () => {
         <Mint/>
       </div>
       <div className="nonindexrightPane">
-        <Dashboard Desposited='$40' Balance='$20' Borrowed='$40'/> 
+        <Dashboard/> 
       </div>
     </div>
     </IonPage>

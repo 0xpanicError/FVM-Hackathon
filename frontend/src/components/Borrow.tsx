@@ -4,7 +4,7 @@ import {ethers} from 'ethers'
 
 const Borrow: React.FC<{}> = () => {
     const redeemfunction = async() => {
-        const contractaddress =  '0xB9D6152acd7b9c282F0a8559906d708EdF677A75'
+		const contractaddress =  '0xB9D6152acd7b9c282F0a8559906d708EdF677A75'
         const abi = [
 			{
 				"anonymous": false,
@@ -163,6 +163,25 @@ const Borrow: React.FC<{}> = () => {
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "usr",
+						"type": "address"
+					}
+				],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "uint256",
 						"name": "_wad",
 						"type": "uint256"
@@ -278,10 +297,11 @@ const Borrow: React.FC<{}> = () => {
 				"stateMutability": "nonpayable",
 				"type": "function"
 			}
-		]
+		];
         const val = document.getElementById("token") as HTMLInputElement | null
         if (val != null){
-            var w = Number(val.value);
+            var w = Number(val.value)
+			    // @ts-ignore
             const provider = new ethers.providers.Web3Provider(window.ethereum)
             const signer = provider.getSigner()
             const usr = await signer.getAddress()

@@ -20,7 +20,6 @@ const Home: React.FC = () => {
   //     "usdval":300
   //   },
   // ]
-  globalThis.meta = false;
   return (
     <IonPage>
     <div className='structure'>
@@ -28,7 +27,7 @@ const Home: React.FC = () => {
         <LeftPane />
       </div>
       <div className="rightPane"> 
-        <Dashboard Desposited='$40' Balance='$20' Borrowed='$40'/>
+        <Dashboard/>
       </div>
     </div>
     </IonPage>

@@ -15,7 +15,7 @@ const swap: React.FC = () => {
         <Swap/>
       </div>
       <div className="nonindexrightPane">
-        <Dashboard Desposited='$40' Balance='$20' Borrowed='$40'/> 
+        <Dashboard/> 
       </div>
     </div>
     </IonPage>

@@ -2,6 +2,7 @@ import React from 'react';
 import swap from '../assets/swap.svg'; 
 import deposite from '../assets/deposit.svg';
 import borrow from '../assets/borrow.svg';
+import logo from '../assets/denero.svg'
 import { useHistory } from "react-router-dom";
 
 const LeftPane: React.FC = () => {
@@ -20,7 +21,7 @@ const LeftPane: React.FC = () => {
     <div>
         <div className="sidePane">
           <div className='logo'>
-            <img src={swap} alt="swap" />
+            <img src={logo} alt="logo" className='logo'/>
           </div>
 
           <div className='swap'>

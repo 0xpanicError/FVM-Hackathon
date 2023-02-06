@@ -1,17 +1,10 @@
 import React, {useEffect} from 'react';
 import {ethers} from 'ethers';
-import { result, round } from 'lodash';
-const Dashboard: React.FC<{Desposited:string,
-Borrowed: string,
-// array: {
-//     id: string,
-//     ethval: number,
-//     usdval: number, 
-// }[]
-}> = ({Desposited, Borrowed}) => {
+import { round } from 'lodash';
+const Dashboard: React.FC<{}> = () => {
     const enableEthereum = async () => {
+	// @ts-ignore
         await ethereum.request({ method: 'eth_requestAccounts' });
-        globalThis.meta = true;
     }
     var balance;
     const getbal = async () => {
@@ -309,6 +302,8 @@ Borrowed: string,
 				"type": "function"
 			}
 		];
+		    // @ts-ignore
+
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
         const mintcontract = new ethers.Contract(contractaddress, abi,signer)
@@ -316,9 +311,15 @@ Borrowed: string,
         const tokenbal = await mintcontract.getBalance(signer.getAddress())  
         const filedep = (tokenbal/80)*(10**-18)
         balance=(round(parseInt(filebal)*(10**(-15))))*10**(-3)
+		    // @ts-ignore
+
         document.getElementById("balance").innerHTML=balance+" tFIL";
         var borrowed = (round(parseInt(tokenbal)*10**(-15)))*(10**-3)
+		    // @ts-ignore
+
         document.getElementById("borrowed").innerHTML="$"+borrowed;
+		    // @ts-ignore
+
         document.getElementById("deposit").innerHTML=filedep+" tFIL";
 
     }
@@ -326,59 +327,11 @@ Borrowed: string,
     useEffect(() => {
         getbal();
     }, [])
-    
-if(globalThis.meta){
-    return (
-        <div className='dashboard'>
-            <div>
-                <div className="wallet2">
-                <button className='metamask'>Connected</button>
-                </div> 
-            </div>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <div className='heading'>
-                Dashboard
-            </div>
-            <div className='stuff'>
-                        
-                <div className='stuffandar'>
-                    <div>
-                        Desposited 
-                    </div>
-                    <div className='stuffval'>
-                        {Desposited}
-                    </div>
-                </div>
-                <div className='stuffandar-balance'>
-                    <div>
-                        Balance
-                    </div>
-                    <div className='stuffval'>
-                        {balance}
-                    </div>
-                </div>
-                <div className='stuffandar'>
-                        <div>
-                            Borrowed
-                        </div> 
-                        <div className='stuffval'> 
-                            {Borrowed}
-                        </div>
-                </div>
-            </div>
-        </div>
-      );
-}
-else{
     return (
         <div className='dashboard'>
             <div>
                 <div className="wallet1">
-                <button className='metamask' onClick={enableEthereum}>Connect MetaMask Wallet +</button>
+                <button className='metamask' onClick={enableEthereum}>Connected</button>
                 </div> 
             </div>
             <br/>
@@ -415,8 +368,7 @@ else{
             </div>
         </div>
       );
-    };
-}
+    }
   
 
 export default Dashboard;
