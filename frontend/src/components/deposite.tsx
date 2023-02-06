@@ -15,7 +15,7 @@ const Mint: React.FC<{}> = () => {
         },
     ]
     const mintfunction = async () => {  
-        const contractaddress =  '0x438d0BacDdD5d1d5292DdFfed8a5EbBEFCeA4b82'
+        const contractaddress =  '0xB9D6152acd7b9c282F0a8559906d708EdF677A75'
         const abi = [
 			{
 				"anonymous": false,
@@ -292,11 +292,11 @@ const Mint: React.FC<{}> = () => {
 		]
         const val = document.getElementById("token") as HTMLInputElement | null
         if (val != null){
-            var w = Number(val.value);
+            var w = parseFloat(val.value);
             const provider = new ethers.providers.Web3Provider(window.ethereum)
             const signer = provider.getSigner()
             const mintcontract = new ethers.Contract(contractaddress, abi,signer)
-            const tx = await mintcontract.mint(w,{value:ethers.utils.parseEther(String(w/80))})
+            const tx = await mintcontract.mint(w,{value:String(ethers.utils.parseEther(String(w/80)))})
             await tx.wait(1)
             console.log(tx)
     }

@@ -4,7 +4,7 @@ import {ethers} from 'ethers'
 
 const Borrow: React.FC<{}> = () => {
     const redeemfunction = async() => {
-        const contractaddress =  '0x438d0BacDdD5d1d5292DdFfed8a5EbBEFCeA4b82'
+        const contractaddress =  '0xB9D6152acd7b9c282F0a8559906d708EdF677A75'
         const abi = [
 			{
 				"anonymous": false,
