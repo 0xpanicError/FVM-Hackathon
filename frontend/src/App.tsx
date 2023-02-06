@@ -24,7 +24,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import './pages/leftPane.css'
-
+import Onboarding from './pages/onboarding';
 /* Global CSS */
 import './global.css';
 import swap from './pages/swap';
@@ -35,7 +35,8 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
         <IonRouterOutlet>
-          <Route path="/"  component={Home} exact={true} />
+          <Route path="/" component={Onboarding} exact={true} />
+          <Route path="/dashboard"  component={Home} exact={true} />
           <Route path="/swap"  component={swap} exact={true} />
           <Route path="/borrow"  component={borrow} exact={true} />
           <Route path="/deposite"  component={Deposite} exact={true} />

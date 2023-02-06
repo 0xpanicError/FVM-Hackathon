@@ -313,7 +313,7 @@ const Borrow: React.FC<{}> = () => {
     }
     var array=[
         {
-            token: 'ETH',
+            token: 'tFIL',
         },
         {   
             token: 'Token2',
